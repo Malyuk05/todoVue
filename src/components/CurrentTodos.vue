@@ -22,17 +22,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
     methods: {
-        edit (todo) {
-            this.$store.dispatch('editTodo', todo)
-        },
-        complete (todo) {
-            this.$store.dispatch('completeTodo', todo)
-        },
-        remove (todo) {
-            this.$store.dispatch('removeTodo', todo)
-        }
+        ...mapActions({
+            edit: 'editTodo',
+            remove: 'removeTodo',
+            complete:'completeTodo'
+        })
     },
     computed: {
         todos () {
